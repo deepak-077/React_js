@@ -1,0 +1,27 @@
+# React provides the functionality of components(jsx file)- the ability to run HTML from JavaScript 
+Step1 - In \app.jsx we are returning a html function
+Step2 - In main.jsx we are importing app.jsx
+
+# React Components - Components are independent and reusable bits of code. 
+They serve the same purpose as JavaScript functions, but work in isolation and return HTML.
+In ther words components return a html program
+
+# component can return only one function. So in case we have to return more than 1 we just wrap them in div or empty tags
+ex - 
+return(<>
+<p> ... </p>
+<h1>... </h1>
+</>)
+
+# Or
+return (<div>
+<p> ... </p>
+<h1>... </h1>
+</div>)
+
+# Main.jsx
+.createRoot- It lets you create a root to display React components inside a browser DOM node
+
+
+
+
