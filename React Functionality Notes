@@ -23,5 +23,13 @@ return (<div>
 .createRoot- It lets you create a root to display React components inside a browser DOM node
 
 
+# In custom react we write code in the form of an object (key:value pair) but in main .jsx we write in form of a function 
+# internally jsx is converted to a key:value pair with the help of a bundler or transpiler.
+# Bundler converts the code into a dom like structure.
+
+# variables are injected at last after the is made 
+# evaluated expression as it is evaluated and we can't check it here because  in the end its converted to obejct and we can't write expressions inside they have to be declared outside
+
+
 
 
