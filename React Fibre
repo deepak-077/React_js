@@ -1,0 +1,12 @@
+# The Problem - if there are updation coming for an element every 1 sec then instead of updating every other update we can wait and then update the latest update.
+
+# Solution -React Fibre - A fiber represents a unit of work.
+
+# React fibre helps us to enable React to take advantage of scheduling. Specifically, we need to be able to
+
+pause work and come back to it later.
+assign priority to different types of work.
+reuse previously completed work.
+abort work if it's no longer needed. 
+
+# virtual Dom - .createRoot method creates a DOM for React and instead of updating the entire dom Structure it only updates the differences in virtual dom and original dom. It also helps in rendering faster 

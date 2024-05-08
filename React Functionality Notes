@@ -6,7 +6,7 @@ Step2 - In main.jsx we are importing app.jsx
 They serve the same purpose as JavaScript functions, but work in isolation and return HTML.
 In ther words components return a html program
 
-# component can return only one function. So in case we have to return more than 1 we just wrap them in div or empty tags
+# component can return only one function. So in case we have to return more than 1 we just wrap them in div or empty tags (fragments)
 ex - 
 return(<>
 <p> ... </p>
