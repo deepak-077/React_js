@@ -10,12 +10,18 @@ function App() {
   // props - it provides reusability of a component
   // since it is component it will behave like HTML
 
+
+  let myObj={
+    username:"deepak",
+    age:24
+  }
+
   return (
     <>
       <h1 className='bg-green-400 text-black p-4'> Tailwind</h1>
 
-      <Card/>
-      <Card/>
+      <Card username="chaiorcode"/>
+      <Card username={"hey"}/>
     </>
   )
 }
