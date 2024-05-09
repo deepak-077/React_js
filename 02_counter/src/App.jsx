@@ -16,6 +16,16 @@ function App() {
     console.log("value added",counter)
     counter++;
     setCounter(counter)
+    setCounter(counter)
+    setCounter(counter)
+    // ---------------------------- Interview Question ---------------------
+    //ADD button will increase the counter by 1 because React uses bundler approach - fibre (bundling the tasks that are doing same thing and updating once)
+    
+    // if we want it to update the previous counter we can write it as 
+    // setCounter(counter =counter+1) - it will execute only when it gets ans from its previous calls
+    // setCounter is a function so we can write a callback function in it
+
+
     // counter is changing in console but its not updating in the html page
     // UI is controlled by react and it provides the functionality of hooks for UI updation
     // there are many hooks for various purposes
