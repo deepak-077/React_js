@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from 'react'
+import { useState, useCallback, useEffect, useRef } from 'react'
 
 
 function App() {
@@ -9,6 +9,12 @@ function App() {
 
   // useCallback(function,dependencies) - we can pass arrow function of in place of function
 
+  // it gives a reference to a variable - we don't know which one to select
+  // to use useRef hook we need to declare it as a variable
+  const passwordRef=useRef(null)
+
+  // useCallback -it will keep password in the cache memory
+
   const passwordGenerator = useCallback(() => {
     let pass= ""
     let str="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
@@ -16,8 +22,8 @@ function App() {
     if(numsAllowed) str+= "0123456789"
     if(charAllowed) str+= "!@#$%^&*()"
 
-    for(let i=1; i<= length(); i++){
-      let charac =Math.floor(Math.random()*str.length()+1);
+    for(let i=1; i<= length; i++){
+      let charac =Math.floor(Math.random()*str.length+1);
 
       pass+=str.charAt(charac);
     }
@@ -26,13 +32,24 @@ function App() {
     
   },[length,numsAllowed,charAllowed,setPassword])
 
+  //copy to clipboard
+   const copyPasswordToClipboard = useCallback(() => {
+    passwordRef.current?.select(); //it will highlight the selected text
+    passwordRef.current?.setSelectionRange(0,length);
+    window.navigator.clipboard.writeText(password)
+   },[password])
+
+  // we are using setPassword instead of password because if pasword will change it will run again which can cause infinite loop
+
 
   // useEffect(function,dependencies) - we can pass arrow function of in place of function
+  // it reloads a function if a page is reloaded or if any of the dependencies change
 
-  // useEffect(() => {
-  //   passwordGenerator()
 
-  // },[length,numsAllowed,charAllowed, passwordGenerator])
+  useEffect(() => {
+    passwordGenerator()
+
+  },[length,numsAllowed,charAllowed, passwordGenerator])
   
 
   return (
@@ -47,9 +64,13 @@ function App() {
       className='outline-none w-full py-1 px-3'
       placeholder='Password'
       readOnly
+      ref={passwordRef} 
+      //for taking reference of input field- this statement links line 67 to 14
       />
 
-      <button className='outline-none bg-blue-700 text-white px-3 py-0.5 shrink-0'>copy </button>
+      <button 
+      onClick={copyPasswordToClipboard}
+      className='outline-none bg-blue-700 text-white px-3 py-0.5 shrink-0'>copy </button>
 
      </div>
      <div className='flex text-sm gap-x-2'>
