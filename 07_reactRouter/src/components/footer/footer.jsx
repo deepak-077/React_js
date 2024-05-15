@@ -1,3 +1,7 @@
+import React from 'react'
+import {Link} from 'react-router-dom'
+
+
 export default function Footer() {
     return (
         <footer className="bg-white border-y">
@@ -9,6 +13,8 @@ export default function Footer() {
                                 src="https://alexharkness.com/wp-content/uploads/2020/06/logo-2.png"
                                 className="mr-3 h-16"
                                 alt="Logo"
+                                height="100px"
+                                width="200px"
                             />
                         </Link>
                     </div>
