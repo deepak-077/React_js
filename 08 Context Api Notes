@@ -1,2 +1,17 @@
 # Need of context api - to Pass data in an efficient manner.
+
 we create a global file in which everything is declared and the element that wants to use the data can directly access from there, it doesn't need to be passed in every element
+
+# UserContext will give us a provider as every context is a provider
+
+we will make UserContext a wrapper 
+like we make of fragments 
+<UserContext>
+<Login/>
+<card/>
+<UserContext/> 
+now UserContext will become a provider- now every variable inside <UserContext> will have access to global UserContext line 3 of usercontext.js
+
+# we can have also have direct access to components inside Usercontext
+
+# context is a global variable
