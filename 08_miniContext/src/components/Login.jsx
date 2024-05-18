@@ -30,6 +30,7 @@ function Login(){
             // updating anychange to setusername
             onChange={(e) => setUsername(e.target.value)}
             placeholder='username' />
+            {" "}
 
             <input type="password" 
             value={password} 
