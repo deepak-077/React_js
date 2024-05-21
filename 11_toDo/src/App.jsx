@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 
 import './App.css'
 import { TodoProvider } from './contexts'
+import TodoForm from './components/TodoForm'
 
 function App() {
   const [todos,setTodos]= useState([])
@@ -31,7 +32,7 @@ function App() {
   // toggle check logic- go inside the object and change the completed status
 
   const toggleComplete = (id) => {
-    setTodos((prev) => prev.map((prevTodo) => prevTodo ===id ? {...prevTodo, completed: !prevTodo.completed} : prevTodo ))
+    setTodos((prev) => prev.map((prevTodo) => prevTodo.id ===id ? {...prevTodo, completed: !prevTodo.completed} : prevTodo ))
   }
 
   // we are using useEffect because we want that whenever our page reloads it should show if there are any existing todos 
@@ -45,6 +46,12 @@ function App() {
       setTodos(todos)
     }
   },[])
+  // parameters should be same in get and set
+
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos))
+
+  },[todos])
 
 
   return (
@@ -54,9 +61,17 @@ function App() {
                     <h1 className="text-2xl font-bold text-center mb-8 mt-2">Manage Your Todos</h1>
                     <div className="mb-4">
                         {/* Todo form goes here */} 
+                        <TodoForm/>
                     </div>
                     <div className="flex flex-wrap gap-y-3">
                         {/*Loop and Add TodoItem here */}
+                        {todos.map((todo)=> (
+                          <div key={todo.id}
+                          className='w-full'>
+                            <TodoItem todo={todo}/>
+
+                          </div>
+                        ))}
                     </div>
                 </div>
             </div>
