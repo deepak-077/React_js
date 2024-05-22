@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useTodo } from '../contexts/TodoContext';
 
 function TodoItem({ todo }) {
 
@@ -16,6 +17,8 @@ function TodoItem({ todo }) {
     const toggleCompleted = () =>{
         toggleComplete(todo.id)
     }
+    // adding date functionality
+    const date=new Date();
     
 
     return (
@@ -35,7 +38,7 @@ function TodoItem({ todo }) {
                 className={`border outline-none w-full bg-transparent rounded-lg ${
                     isTodoEditable ? "border-black/10 px-2" : "border-transparent"
                 } ${todo.completed ? "line-through" : ""}`}
-                value={todoMsg}
+                value={todoMsg+ " - "+ date.toDateString()}
                 onChange={(e) => setTodoMsg(e.target.value)}
                 readOnly={!isTodoEditable}
             />
