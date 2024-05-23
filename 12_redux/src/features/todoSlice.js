@@ -27,6 +27,7 @@ export const todoSlice =createSlice({
                 // passing whatever was passed in text
                 text:action.payload
             }
+            // state is preserved by default, we don't have to spread 
             state.todos.push(todo)
         },
         removeTodo: (state,action) =>{
