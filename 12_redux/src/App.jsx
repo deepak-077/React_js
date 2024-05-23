@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import Todos from './components/Todos'
+import AddTodo from './components/AddTodo'
 import './App.css'
 
 function App() {
@@ -9,6 +9,8 @@ function App() {
   return (
     <>
       <h1> Learning Redux Toolkit</h1>
+      <AddTodo/>
+      <Todos/>
     </>
   )
 }
